@@ -1,9 +1,14 @@
-import noun_chunks
+from model import model
+import parser
 
 class nltp:
 
     def __init__(self):
-        pass
+        self.nlp = model
 
     def compile(self, line):
-        noun_chunks.print_noun_chunks(line)
+        doc = self.nlp(line)
+        parse = parser.rdp(doc)
+        parse.parse_doc()
+
+
