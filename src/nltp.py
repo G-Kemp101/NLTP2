@@ -7,8 +7,13 @@ class nltp:
         self.nlp = model
 
     def compile(self, line):
-        doc = self.nlp(line)
-        parse = parser.rdp(doc)
+        self.doc = self.nlp(line)
+        self.print_doc()
+        parse = parser.rdp(self.doc)
         parse.parse_doc()
 
+    def print_doc(self):
+
+        for token in self.doc:
+            print(token.text, token.tag_)
 
